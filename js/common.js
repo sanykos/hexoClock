@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
     
     var text = document.querySelector('h1');
-    var color = document.querySelector('h2');
+    var bgColor = document.querySelector('h2');
 
     function getTimeStr(time) {
         if(time.length < 2)
@@ -19,13 +19,18 @@ window.addEventListener('DOMContentLoaded', function() {
         seconds = getTimeStr(seconds);
 
         let color = '#'+hours+minutes+seconds;
-        document.body.style.background = color;
-
         
-        console.log(color);
-    }
 
+        text.textContent = hours+":"+minutes+":"+seconds;
+        bgColor.textContent = color;
+
+        document.body.style.background = color;
+       // console.log(color);
+    }
     hexClock();
+    setInterval(hexClock, 1000);
+
+    
 
 
 })
